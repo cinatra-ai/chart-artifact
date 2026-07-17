@@ -1,0 +1,74 @@
+{
+  "name": "@cinatra-ai/chart-artifact",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@11.1.2",
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./src/views/chart": "./src/views/chart.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/test.mjs"
+  },
+  "dependencies": {
+    "recharts": "^3.8.1",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "cinatra": {
+    "apiVersion": "cinatra.ai/v1",
+    "kind": "artifact",
+    "displayName": "Chart",
+    "vendor": {
+      "key": "cinatra-ai",
+      "name": "Cinatra"
+    },
+    "dependencies": [],
+    "artifact": {
+      "accepts": {
+        "file": {
+          "mimeTypes": [
+            "application/vnd.cinatra.chart+json"
+          ]
+        }
+      }
+    },
+    "views": {
+      "abiVersion": 1,
+      "entries": [
+        {
+          "viewType": "chart",
+          "entry": "./src/views/chart.tsx",
+          "propsApiVersion": 1
+        }
+      ]
+    }
+  }
+}
